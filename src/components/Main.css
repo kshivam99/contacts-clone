@@ -1,0 +1,30 @@
+.subBody {
+    display:flex;
+}
+
+.subBody .contacts {
+    width:80%;
+}
+
+.subBody .hideDiv {
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subBody .hideDiv button {
+    margin:1rem;
+}
+
+.contacts .contactList {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding:1rem;
+}
+
+.contacts .contactList span {
+    margin:5rem;
+}

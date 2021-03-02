@@ -1,0 +1,23 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.headerBody{
+    display: flex;
+    padding: 1rem;
+}
+
+.headerBody>input{
+    background-color:#F3F4F6;
+    margin: 1rem;
+    width: 30rem;
+    height: 2rem;
+    margin-left: 10rem;
+    padding-left: 1rem;
+}
+
+i {
+    margin: 1rem;
+    cursor: pointer;
+}
+h2 {
+    margin: 1rem;
+}

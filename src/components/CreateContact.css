@@ -1,0 +1,16 @@
+.createContactBody{
+    position:absolute;
+    margin-left: 65rem;
+    margin-top: 25rem;
+    height: 20rem;
+    width: 50rem;
+    background-color: #D1D5DB;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createContactBody>input{
+    padding:1.5rem;
+}
