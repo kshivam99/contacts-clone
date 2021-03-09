@@ -1,21 +1,76 @@
 .subBody {
     display:flex;
+    justify-content: space-between;
+    padding: 0 4rem;
 }
 
-.subBody .contacts {
-    width:80%;
+.avatar {
+    display: inline-block;
+    margin: 0 1rem;
+    padding:0.7rem;
+    color:white;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    text-align: center;
 }
-
-.subBody .hideDiv {
-    width:20%;
+.contacts {
+    flex-grow: 1;
+}
+.contactsBody {
+    padding-left:15rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content:right;
 }
 
-.subBody .hideDiv button {
+
+.subBody .showDiv {
+    position: absolute;
+    left:0;
+    max-width:20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: #F3F4F6;
+    border-radius: 0 2rem 2rem 0;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.subBody .hideDiv {
+    position: absolute;
+    left:-100%;
+    transition: all 0.3s ease;
+}
+.subBody .showDiv button {
     margin:1rem;
+    width:12rem;
+    
+}
+
+.stackedList {
+    height: 2rem;
+    min-width: 10rem;
+    background-color: #D1D5DB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.stackedList:hover {
+    background-color:white;
+}
+
+
+.link:focus, .link:visited, .link:link, .link:active {
+    text-decoration: none;
+    color: black;
 }
 
 .contacts .contactList {
@@ -27,4 +82,50 @@
 
 .contacts .contactList span {
     margin:5rem;
+}
+
+
+.addContactBtn {
+    border: 2px solid black;
+    padding:0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    align-items: center;
+    
+}
+
+.addContactBtn>span {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.navbar-avatar {
+    width:2rem;
+    height: 2rem;
+    width: 2rem;
+    margin: 1rem;
+    border-radius: 100%;
+    margin-left: 4rem;
+}
+
+.navbar-icon {
+    width:2rem;
+    height: 2rem;
+    margin: 0 1rem;
+    margin-top: 0.5rem;
+    border-radius: 100%;
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+}
+
+.menu-icon .icon {
+    padding: 0 1rem;
 }

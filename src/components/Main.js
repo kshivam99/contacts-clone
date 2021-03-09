@@ -4,7 +4,13 @@ import { useState } from "react";
 import CreateContact from "./CreateContact";
 import Trash from "./Trash";
 import Contacts from "./Contacts";
-import ImpContact from "./ImpContacts";
+import ImpContacts from "./ImpContacts";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export default function Main() {
     const [contacts, setContacts] = useState([]);
@@ -45,14 +51,30 @@ export default function Main() {
         <div className="mainBody">
             <Header viewSideBar={viewSideBar} setViewSideBar={setViewSideBar} />
             <div className="subBody">
-                <div className="hideDiv" style={{display:viewSideBar?"":"none"}}>
-                        <button onClick={viewCreateContactHandler}> + Create Contact</button>
+                <Router>
+                <div className={viewSideBar?"showDiv":"hideDiv"}>
+                        <button onClick={viewCreateContactHandler} className="addContactBtn"><span>+</span> Create Contact</button>
                         <CreateContact contacts={contacts} setContacts={setContacts} viewCreateContact={viewCreateContact} setViewCreateContact={setViewCreateContact} />
-                        <button>All Contacts</button>
-                        <button>Important</button>
-                        <button>Trash</button>
+                            <ul>     
+                                <li className="stackedList"><Link className="link" to="/">All Contacts</Link></li>
+                                <li className="stackedList"><Link className="link" to="/imp">Important</Link></li>
+                                <li className="stackedList"><Link className="link" to="/trash">Trash</Link></li>
+                            </ul>
                 </div>
-                <Contacts contacts={contacts} labelContact={labelContact} deleteContact={deleteContact} />
+                <div className="contacts">
+                    <Switch>
+                        <Route  path="/" exact>
+                            <Contacts contacts={contacts} labelContact={labelContact} deleteContact={deleteContact} />
+                        </Route>
+                        <Route  path="/trash" >
+                            <Trash contacts={contacts} setContacts={setContacts} />
+                        </Route>
+                        <Route  path="/imp">
+                            <ImpContacts contacts={contacts} setContacts={setContacts} />
+                        </Route>
+                    </Switch>   
+                </div>
+                </Router>    
             </div>
         </div>
     )

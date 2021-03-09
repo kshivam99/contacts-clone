@@ -1,6 +1,7 @@
 import "./CreateContact.css";
 import { useState } from "react";
 import uuid from "react-uuid";
+import randomColor from "randomcolor";
 
 
 export default function CreateContact({contacts, setContacts, viewCreateContact, setViewCreateContact}) {
@@ -16,7 +17,8 @@ export default function CreateContact({contacts, setContacts, viewCreateContact,
             email:email,
             contact:number,
             imp:false,
-            deleted:false
+            deleted:false,
+            color:randomColor()
         };
         setContacts([...contacts, newObj]);
         setName("");
@@ -41,10 +43,26 @@ export default function CreateContact({contacts, setContacts, viewCreateContact,
     }
     return (
         <div className="createContactBody" style={{display:viewCreateContact?"":"none"}}>
-                <input placeholder="Enter Name" value={name} onChange={(e)=>setNameHandler(e)} />
-                <input placeholder="Enter Email" value={email} onChange={(e)=>setEmailHandler(e)}/>
-                <input placeholder="Enter Mobile Number" value={number} onChange={(e)=>setNumberHandler(e)}/>
-                <button onClick={addContact}>Add Contact</button>
+                <div className="formInput">
+                <input type="text" name="name" autoComplete="off" value={name} onChange={(e)=>setNameHandler(e)} required />
+                    <label for="name" className="labelName">
+                        <span className="contentName">Name</span>
+                    </label>
+                </div>
+                <div className="formInput">
+                <input type="text" name="email" autoComplete="off" value={email} onChange={(e)=>setEmailHandler(e)} required/>
+                    <label for="email" className="labelName">
+                        <span className="contentName">Email</span>
+                    </label>
+                </div>
+                <div className="formInput">
+                <input type="text" name="contact" autoComplete="off" value={number} onChange={(e)=>setNumberHandler(e)} required/>
+                    <label for="contact" className="labelName">
+                        <span className="contentName">Contact</span>
+                    </label>
+                </div>
+               
+                <button disabled={!name.length} onClick={addContact}>Add Contact</button>
 
         </div>
     )

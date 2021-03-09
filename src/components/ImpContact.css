@@ -1,0 +1,10 @@
+.impContacts {
+    padding-left:3rem;
+}
+
+li>span {
+    margin: 5rem;
+}
+ul{
+    list-style:none;
+}
