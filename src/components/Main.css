@@ -35,7 +35,7 @@
     justify-content:start;
     align-items: center;
     transition: all 0.3s ease;
-    background-color: #F3F4F6;
+    background-color: #F9FAFB;
     border-radius: 0 2rem 2rem 0;
     height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -54,7 +54,7 @@
 .stackedList {
     height: 2rem;
     min-width: 10rem;
-    background-color: #D1D5DB;
+    background-color: #F3F4F6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +64,7 @@
 }
 
 .stackedList:hover {
-    background-color:white;
+    background-color:#E5E7EB;
 }
 
 
@@ -128,4 +128,24 @@
 
 .menu-icon .icon {
     padding: 0 1rem;
+}
+
+.editContactBody{
+    position:absolute;
+    top:10rem;
+    right: 20rem;
+    height: 20rem;
+    width: 30rem;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.5rem solid #E5E7EB;
+
+      
+}
+
+.editContactBody>input{
+    padding:1.5rem;
 }

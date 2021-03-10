@@ -19,7 +19,6 @@ export default function Main() {
 
     function viewCreateContactHandler(){
         setViewCreateContact(prev=>!prev);
-        console.log(contacts);
     }
 
     const labelContact = (contact) => {
@@ -28,10 +27,6 @@ export default function Main() {
             item.id === contact.id ? { ...item, imp:!item.imp } : item
           )
         );
-        setContacts(prev=>{
-            console.log(prev);
-            return prev;
-        })
       };
     
       
@@ -41,10 +36,6 @@ export default function Main() {
             item.id === contact.id ? { ...item, deleted:!item.deleted } : item
           )
         );
-        setContacts(prev=>{
-            console.log(prev);
-            return prev;
-        })
       };
 
     return(
@@ -56,21 +47,21 @@ export default function Main() {
                         <button onClick={viewCreateContactHandler} className="addContactBtn"><span>+</span> Create Contact</button>
                         <CreateContact contacts={contacts} setContacts={setContacts} viewCreateContact={viewCreateContact} setViewCreateContact={setViewCreateContact} />
                             <ul>     
-                                <li className="stackedList"><Link className="link" to="/">All Contacts</Link></li>
-                                <li className="stackedList"><Link className="link" to="/imp">Important</Link></li>
-                                <li className="stackedList"><Link className="link" to="/trash">Trash</Link></li>
+                            <Link className="link" to="/"> <li className="stackedList">All Contacts</li></Link>
+                            <Link className="link" to="/imp"> <li className="stackedList">Important</li></Link>
+                            <Link className="link" to="/trash"> <li className="stackedList">Trash</li></Link>
                             </ul>
                 </div>
                 <div className="contacts">
                     <Switch>
                         <Route  path="/" exact>
-                            <Contacts contacts={contacts} labelContact={labelContact} deleteContact={deleteContact} />
+                            <Contacts contacts={contacts} setContacts={setContacts} labelContact={labelContact} deleteContact={deleteContact} />
                         </Route>
                         <Route  path="/trash" >
                             <Trash contacts={contacts} setContacts={setContacts} />
                         </Route>
                         <Route  path="/imp">
-                            <ImpContacts contacts={contacts} setContacts={setContacts} />
+                            <ImpContacts contacts={contacts} labelContact={labelContact} />
                         </Route>
                     </Switch>   
                 </div>

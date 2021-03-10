@@ -14,6 +14,11 @@ export default function Trash({contacts, setContacts}) {
             return prev;
         })
     }
+
+    function deleteContact(contact) {
+        setContacts(prev=>
+            prev.filter(item=>item.id!==contact.id));
+    }
     return(
         <div className="contactsBody">
         <h1 className="contactHeading">Trash</h1>
@@ -24,11 +29,12 @@ export default function Trash({contacts, setContacts}) {
             <th>Contact</th>
         </tr>
         {contacts.map((item, index)=>item.deleted?(
-                <tr>
+                <tr className="contactItems">
                     <td><span className="avatar" style={{backgroundColor:item.color}}>{item.name[0]}</span>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.contact}</td>
-                    <td><button onClick={()=>restoreContact(item)}>Restore</button></td>
+                    <td><button onClick={()=>restoreContact(item)}>Restore</button> &nbsp;
+                    <button onClick={()=>deleteContact(item)}>Delete</button></td>
                 </tr>   
         ):null)}
         </table>
